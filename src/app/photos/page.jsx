@@ -1,4 +1,5 @@
 import api from "../api-services/data";
+import Image from "next/image";
 
 //get photos from API
 async function fetchPhotos() {
@@ -19,7 +20,12 @@ async function page() {
         {photos.map((photo) => {
           return (
             <figure key={photo.id}>
-              <img src={photo.thumbnailUrl} alt={photo.title} />
+              <Image
+                width={200}
+                height={200}
+                src={photo.thumbnailUrl}
+                alt={photo.title}
+              />
               <figcaption>{photo.title}</figcaption>
             </figure>
           );

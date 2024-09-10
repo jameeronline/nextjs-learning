@@ -7,24 +7,34 @@ import { usePathname } from "next/navigation";
 
 const menuNav = [
   {
+    id: 1,
     label: "Home",
     slug: "/",
     url: "/",
   },
   {
+    id: 2,
     label: "Users List",
     slug: "users",
     url: "/users",
   },
   {
+    id: 3,
     label: "Posts",
     slug: "posts",
     url: "/posts",
   },
   {
+    id: 4,
     label: "Photos",
     slug: "photos",
     url: "/photos",
+  },
+  {
+    id: 5,
+    label: "Todos",
+    slug: "todos",
+    url: "/todos",
   },
 ];
 
@@ -45,7 +55,7 @@ function Header() {
             <ul className="flex gap-8">
               {menuNav.map((menu) => {
                 return (
-                  <li>
+                  <li key={menu.id}>
                     <Link
                       href={menu.url}
                       className={`link ${pathname === menu.slug ? "text-emerald-500" : ""}`}
